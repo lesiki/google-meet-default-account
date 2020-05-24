@@ -3,7 +3,7 @@
 	"version": "1.0",
 	"manifest_version": 2,
     "description": "Set the default account for google meet for users who are signed in to multiple Google accounts. Icon from Font Awesome.",
-    "permissions": ["storage", "webRequest", "webRequestBlocking", "tabs", "https://meet.google.com/*"],
+    "permissions": ["storage", "webRequest", "webRequestBlocking", "https://meet.google.com/*"],
     "icons": {
         "16": "headset_16.png",
         "48": "headset_48.png",
