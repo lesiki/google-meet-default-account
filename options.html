@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Google Meet Default Account</title>
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Default Google Meet account Configuration</h3>
+        <p class="grouped">
+            <input type="text" id="authuser" placeholder="Set the AuthUser">
+            <button id="save">Save</button>
+        </p>
+        <h3>What is an AuthUser ID?</h3>
+        <p>To find the authUser ID for the Google account you want to set as default:
+        <ul>
+            <li>Go to meet.google.com</li>
+            <li>Using the account switcher in the top right, switch to the google account you want as your default</li>
+            <li>After the page reloads with the desired account active, there will be a <em>authuser=</em> section added
+                to
+                the url. The number that follows this is your authUser ID</li>
+        </ul>
+        If the first account that Google Meet opened is your desired account, your authUser ID is 0 (and you probably
+        don't need this extension)
+        </p>
+
+    </div>
+    <script src="options.js"></script>
+</body>
+
+</html>
