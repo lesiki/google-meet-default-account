@@ -1,6 +1,6 @@
 {
 	"name": "Google Meet Default Account",
-	"version": "1.0",
+	"version": "1.1",
 	"manifest_version": 2,
     "description": "Set the default account for google meet for users who are signed in to multiple Google accounts. Icon from Font Awesome.",
     "permissions": ["storage", "webRequest", "webRequestBlocking", "https://meet.google.com/*"],
