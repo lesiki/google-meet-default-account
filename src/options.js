@@ -1,48 +1,81 @@
-saveButton = document.getElementById('save');
-authuserInput = document.getElementById('authuser');
-forceInput = document.getElementById('force');
+const saveButton = document.getElementById('save');
+const authUserInput = document.getElementById('authuser');
+const forceInput = document.getElementById('force');
+const hideAuthUserInput = document.getElementById('hideAuthUser');
+const savedSpan = document.getElementById('saved');
 
-function saveConfig() {
+function saveConfig(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    saveButton.setAttribute("disabled", "disabled");
+    savedSpan.innerText = chrome.i18n.getMessage("saveButtonSaving") || "Saving...";
+
     chrome.storage.sync.set({
-        authuser: authuserInput.value,
-        force: forceInput.checked === true
+        authuser: authUserInput.value,
+        force: forceInput.checked === true,
+        hideAuthUser: hideAuthUserInput.checked === true
     }, function() {
-        saveButton.setAttribute('class', 'button success');
-        saveButton.innerHTML = "Saved";
-
-        chrome.extension.getBackgroundPage().authUser = authuserInput.value;
-        chrome.extension.getBackgroundPage().force = forceInput.checked === true;
+        savedSpan.innerText = chrome.i18n.getMessage("saveButtonSaved") || "Saved";
 
         setTimeout(function() {
-            saveButton.removeAttribute('class');
+            savedSpan.innerText = "";
+            saveButton.removeAttribute("disabled");
+
             window.close();
-        }, 750)
+        }, 750);
     });
 }
 
 function validateInput() {
-    if (/^\+?(0|[1-9]\d*)$/.test(authuserInput.value)) {
+    if (authUserInput.value === "" || /^\+?(0|[1-9]\d*)$/.test(authUserInput.value)) {
         saveButton.removeAttribute('disabled');
-        authuserInput.setAttribute('class', 'success')
+        authUserInput.classList.remove('invalid')
     }
     else {
         saveButton.setAttribute('disabled', 'disabled');
-        authuserInput.setAttribute('class', 'error')
+        authUserInput.classList.add('invalid')
     }
 }
 
 function loadConfig() {
     chrome.storage.sync.get({
         authuser: '',
-        force: false
+        force: false,
+        hideAuthUser: false
     }, function(result) {
-        authuserInput.value = result.authuser;
+        authUserInput.value = result.authuser;
         forceInput.checked = result.force;
-
-        validateInput();
+        hideAuthUserInput.checked = result.hideAuthUser;
     });
 }
 
+function localizeHtmlPage() {
+    const getMessage = tag => tag.replace(/__MSG_(\w+)__/g, function(match, v1) {
+        return v1 ? chrome.i18n.getMessage(v1) : '';
+    });
+
+    for (let obj of [...document.querySelectorAll('[data-localize]'), ...document.querySelectorAll('[data-placeholder-localize]')]) {
+        if( obj.getAttribute('data-localize') ) {
+            const msg = getMessage(obj.getAttribute('data-localize').toString());
+
+            if( msg ) {
+                obj.innerHTML = msg;
+            }
+        }
+
+        if( obj.getAttribute('data-placeholder-localize') ) {
+            const msg = getMessage(obj.getAttribute('data-placeholder-localize').toString());
+
+            if( msg ) {
+                obj.setAttribute('placeholder', msg);
+            }
+        }
+    }
+}
+
+localizeHtmlPage();
 loadConfig();
-authuserInput.addEventListener("keyup", validateInput);
+
+authUserInput.addEventListener("keyup", validateInput);
 saveButton.addEventListener("click", saveConfig);
