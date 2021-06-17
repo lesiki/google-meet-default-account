@@ -41,20 +41,20 @@
   },
 
   "helpForceRedirectTitle": {
-    "message": "What is an Force Redirect?"
+    "message": "Force Redirect"
   },
   "helpForceRedirectParagraphOne": {
-    "message": "This option is required in order to handle invalid links with incorrect AuthUser inside it."
+    "message": "This option is required in order to handle links which already have an AuthUser ID included."
   },
   "helpForceRedirectParagraphTwo": {
-    "message": "This option start to redirect you into AuthUser ID, no matter which AuthUse ID provided in URL."
+    "message": "With this option enabled, your specified AuthUser ID will always be set, even when one was alreayd provided in the original URL."
   },
 
   "helpHideAuthUserTitle": {
-    "message": "What is an Hide AuthUser after redirection?"
+    "message": "Hide AuthUser after redirection"
   },
   "helpHideAuthUserParagraphOne": {
-    "message": "This option helps you to remove ?authuser= after redirection from url, so you can easily share it to others by copy/pasting."
+    "message": "This option lets you remove the ?authuser= parameter from the URL after redirection, so you can easily share it with others by copy/pasting."
   },
 
   "saveButtonSaving": {
