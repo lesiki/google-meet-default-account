@@ -12,6 +12,13 @@
 	"background": {
 		"scripts": ["background.js"]
     },
+    "content_scripts": [
+        {
+            "matches": ["https://meet.google.com/*"],
+            "js": ["contentScript.js"]
+        }
+    ],
+    "default_locale": "en",
     "options_ui": {
         "page": "options.html",
         "open_in_tab": false

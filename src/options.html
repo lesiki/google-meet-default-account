@@ -2,39 +2,74 @@
 <html>
 
 <head>
-    <title>Google Meet Default Account</title>
-    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    <title data-localize="__MSG_optionsTitle__">Google Meet Default Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
-    <div class="container">
-        <h3>Default Google Meet account Configuration</h3>
-        <p>
-            <input type="text" id="authuser" placeholder="Set the AuthUser">
-        </p>
-        <p>
-            <input type="checkbox" id="force" /> Force Redirect?
-        </p>
-        <p>
-            <button id="save">Save</button>
-        </p>
-        <h3>What is an AuthUser ID?</h3>
-        <p>To find the authUser ID for the Google account you want to set as default:</p>
-        <ul>
-            <li>Go to meet.google.com</li>
-            <li>Using the account switcher in the top right, switch to the google account you want as your default</li>
-            <li>After the page reloads with the desired account active, there will be a <em>authuser=</em> section added
-                to
-                the url. The number that follows this is your AuthUser ID</li>
-        </ul>
-        <p>If the first account that Google Meet opened is your desired account, your authUser ID is 0 (and you probably
-            don't need this extension)</p>
-        <h3>What is an Force Redirect?</h3>
-        <p>This option is required in order to handle invalid links with incorrect AuthUser inside it.</p>
-        <p>This option start to redirect you into AuthUser ID, no matter which AuthUse ID selected</p>
-
+<body style="width: 600px">
+<div class="container" style="width: 90%">
+    <div class="row">
+        <div class="col s12">
+            <h5 data-localize="__MSG_optionsConfigurationTitle__">Google Meet Default Account Configuration</h5>
+        </div>
     </div>
-    <script src="options.js"></script>
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <span data-localize="__MSG_authUserLabel__">Auth User</span>
+                    <input placeholder="Set the AuthUser" data-placeholder-localize="__MSG_authUserPlaceholder__" id="authuser" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="сol s12">
+                    <label>
+                        <input type="checkbox" id="force" />
+                        <span data-localize="__MSG_forceRedirectLabel__">Force redirect?</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="сol s12">
+                    <label>
+                        <input type="checkbox" id="hideAuthUser" />
+                        <span data-localize="__MSG_hideAuthUserLabel__">Hide AuthUser after redirection?</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button class="btn" id="save" data-localize="__MSG_saveButtonText__">Save</button>
+                    <span id="saved" class="flow-text" style="margin-left: 5px;"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <h5 data-localize="__MSG_helpAuthUserIdTitle__">What is an AuthUser ID?</h5>
+    <p class="flow-text" data-localize="__MSG_helpAuthUserIdParagraphOne__">To find the AuthUser ID for the Google account you want to set as default:</p>
+    <ul class="collection">
+        <li class="collection-item flow-text" data-localize="__MSG_helpAuthUserIdParagraphTwo__">Go to <a href='https://meet.google.com/' target='_blank'>meet.google.com</a></li>
+        <li class="collection-item flow-text" data-localize="__MSG_helpAuthUserIdParagraphThree__">Using the account switcher in the top right, switch to the google account you want
+            as your default
+        </li>
+        <li class="collection-item flow-text" data-localize="__MSG_helpAuthUserIdParagraphFour__">After the page reloads with the desired account active, there will be a <em>authuser=</em>
+            section added
+            to
+            the url. The number that follows this is your AuthUser ID
+        </li>
+    </ul>
+    <p class="flow-text" data-localize="__MSG_helpAuthUserIdParagraphFive__">If the first account that Google Meet opened is your desired account, your AuthUser ID is 0 (and you probably
+        don't need this extension)</p>
+    <h5 data-localize="__MSG_helpForceRedirectTitle__">What is an Force Redirect?</h5>
+    <p class="flow-text" data-localize="__MSG_helpForceRedirectParagraphOne__">This option is required in order to handle invalid links with incorrect AuthUser inside it.</p>
+    <p class="flow-text" data-localize="__MSG_helpForceRedirectParagraphTwo__">This option start to redirect you into AuthUser ID, no matter which AuthUse ID provided in URL.</p>
+    <h5 data-localize="__MSG_helpHideAuthUserTitle__">What is an Hide AuthUser after redirection?</h5>
+    <p class="flow-text" data-localize="__MSG_helpHideAuthUserParagraphOne__">This option helps you to remove ?authuser= after redirection from url, so you can easily share it to others by copy/pasting.</p>
+</div>
+<script src="options.js"></script>
 </body>
 
 </html>

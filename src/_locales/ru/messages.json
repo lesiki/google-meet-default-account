@@ -1,0 +1,66 @@
+{
+  "optionsTitle": {
+    "message": "Google Meet Default Account"
+  },
+  "optionsConfigurationTitle": {
+    "message": "Google Meet Default Account Настройки"
+  },
+  "authUserLabel": {
+    "message": "Auth User"
+  },
+  "authUserPlaceholder": {
+    "message": "Настройте AuthUser"
+  },
+  "forceRedirectLabel": {
+    "message": "Всегда перенаправлять?"
+  },
+  "hideAuthUserLabel": {
+    "message": "Скрыть AuthUser после перенаправления?"
+  },
+  "saveButtonText": {
+    "message": "Сохранить"
+  },
+
+  "helpAuthUserIdTitle": {
+    "message": "Что такое AuthUser ID?"
+  },
+  "helpAuthUserIdParagraphOne": {
+    "message": "Чтобы понять, какой AuthUser ID для аккаунта Google вам необходимо установить, следуйте инструкциям:"
+  },
+  "helpAuthUserIdParagraphTwo": {
+    "message": "Перейдите по ссылке <a href='https://meet.google.com/' target='_blank'>meet.google.com</a>"
+  },
+  "helpAuthUserIdParagraphThree": {
+    "message": "Используя переключатель аккаунтов в правом верхнем углу, переключитесь на тот аккаунт, который вы хотите установить по умолчанию"
+  },
+  "helpAuthUserIdParagraphFour": {
+    "message": "После перезагрузки страницы с необходимым аккаунтов вы увидите параметр <em>authuser=</em> в URL. Число, которое следует за этим параметром и есть ваш AuthUser ID"
+  },
+  "helpAuthUserIdParagraphFive": {
+    "message": "Если страница открылась сразу же с необходимым аккаунтом, то ваш AuthUser ID является 0 (и, возможно, вам не нужно это расширение)"
+  },
+
+  "helpForceRedirectTitle": {
+    "message": "Что означает 'Всегда перенаправлять'?"
+  },
+  "helpForceRedirectParagraphOne": {
+    "message": "Эта опция необходима, если кто-либо отправляет вам ссылки с некорректным AuthUser ID в них."
+  },
+  "helpForceRedirectParagraphTwo": {
+    "message": "После её включения, даже с таких ссылок будет происходить редирект на выбранный вами аккаунт."
+  },
+
+  "helpHideAuthUserTitle": {
+    "message": "Что означает 'Скрыть AuthUser после перенаправления'?"
+  },
+  "helpHideAuthUserParagraphOne": {
+    "message": "Эта опция автоматически удаляет параметр ?authuser из итоговой ссылки, после чего вы можете без проблем отправить её другому человеку без этого параметра."
+  },
+
+  "saveButtonSaving": {
+    "message": "Созраняю..."
+  },
+  "saveButtonSaved": {
+    "message": "Сохранено"
+  }
+}
